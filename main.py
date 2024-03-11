@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from bangla import *
-
+import gunicorn
 app = Flask(__name__)
 
 
