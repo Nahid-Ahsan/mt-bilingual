@@ -16,7 +16,8 @@ def queryresonse():
 
 
 if __name__ == "__main__":
-	app.run(debug=True)
 	gunicorn -w 4 -b 0.0.0.0:5000 main:app
+	app.run(debug=True)
+	
 
 
