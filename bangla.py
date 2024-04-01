@@ -6,12 +6,13 @@ model = AutoModelForSeq2SeqLM.from_pretrained("csebuetnlp/banglat5_nmt_bn_en")
 tokenizer = AutoTokenizer.from_pretrained("csebuetnlp/banglat5_nmt_bn_en", use_fast=False)
 
 
-def translate(input_sentence):
+def translate_bn(input_sentence):
     input_ids = tokenizer(normalize(input_sentence), return_tensors="pt").input_ids
     generated_tokens = model.generate(input_ids)
     decoded_tokens = tokenizer.batch_decode(generated_tokens)[0]
     output_sentence = re.sub(r'<pad>|<\/s>', '', decoded_tokens)
     return output_sentence
+
 
 
 if __name__ == "__main__":
