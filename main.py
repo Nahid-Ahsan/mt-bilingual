@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 
 @app.route('/bangla', methods=['POST'])
-def queryresonse():
+def queryresonse_bn():
     try:
         query = request.json.get('query', '')
         # print(query)  
@@ -16,7 +16,7 @@ def queryresonse():
         return jsonify({'error': str(e)})
 
 @app.route('/english', methods=['POST'])
-def queryresonse():
+def queryresonse_en():
     try:
         query = request.json.get('query', '')
         # print(query)  
@@ -26,8 +26,8 @@ def queryresonse():
         return jsonify({'error': str(e)})
 	    
 if __name__ == "__main__":
-	gunicorn -w 4 -b 0.0.0.0:5000 main:app
 	app.run(debug=True)
 	
+	# gunicorn -w 4 -b 0.0.0.0:5000 main:app
 
 
